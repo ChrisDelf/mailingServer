@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
@@ -7,8 +7,7 @@ const nodemailer = require('nodemailer');
 const cors = require('cors');
 const app = express();
 
-
-app.use(cors())
+app.use(cors());
 // View engine setup
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -70,5 +69,5 @@ app.post('/send', (req, res) => {
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
   });
 });
-
-app.listen(7000, () => console.log('server start'));
+const port = process.env.PORT || 7000;
+app.listen(port, () => console.log('server start', port));
