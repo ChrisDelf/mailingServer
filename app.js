@@ -29,7 +29,6 @@ app.post('/send', (req, res) => {
     <h3>Contact Details</h3>
     <ul>
       <li>Name: ${req.body.values.name}</li>
-      <li>Company: ${req.body.values.company}</li>
       <li>Email: ${req.body.values.email}</li>
       <li>Phone: ${req.body.values.phone}</li>
     </ul>
@@ -68,6 +67,7 @@ app.post('/send', (req, res) => {
     console.log('Message sent: %s', info.messageId);
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
   });
+  res.status(200).send("Success");
 });
 const port = process.env.PORT || 7000;
 app.listen(port, () => console.log('server start', port));
